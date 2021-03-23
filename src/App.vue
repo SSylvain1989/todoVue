@@ -3,8 +3,8 @@
 <Form @add="saveTechno"/>
 <br>
 
-<!-- sans les deux points devant technos , on aurait passer au composant une string , là on passe bien la valeur -->
-<TechnoList :technos="technos" @delete-techno="deleteTechno"/>
+<!-- sans les deux points devant technos , on aurait passe au composant une string , là on passe bien la valeur -->
+<TechnoList :technos="technos" @delete-techno="deleteTechno" @edit-techno="editTechno"/>
 </template>
 
 
@@ -28,6 +28,13 @@ export default {
       technos.value = [...technos.value, { techno : data , id : Date.now()}];
 
 };
+  // ici "tech" est le payload du custom event du composant Technolist "edit-techno"
+  // littéralement on traduit le map par , sur l'element courant de ta boucle , donc tec ,
+  //  je te demande si tec.id et tech ( le tech de technolist ) sont différent , alors tu fais la modif , sinon tu touches à rien 
+        const editTechno = function(tech) {
+          technos.value = technos.value.map(tec => tec.id !== tech.id ? tec : tech);
+        }
+
         const deleteTechno = function (tech) {
           // console.log('app2',technos.value);
           // console.log('app', tech);
@@ -39,6 +46,7 @@ return {
     saveTechno,
     deleteTechno,
     technos,
+    editTechno
     }
 
   },

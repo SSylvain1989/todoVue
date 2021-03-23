@@ -6,7 +6,8 @@
     <button @click="editTechno(tech)">Editer</button>
     <button @click="deleteTechno(tech)">Supprimer</button> 
     <span v-if="technoToEdit !== null && technoToEdit.id === tech.id">
-      <input type="text" v-model="technoToEdit.techno"><button @click="save">sauvegarder</button>
+      <input type="text" v-model="technoToEdit.techno" @keypress.enter="save">
+      <button @click="save">sauvegarder</button>
     </span>
     <span v-else>{{tech.techno}}</span>
     </li>
@@ -16,7 +17,7 @@
 <script>
 import { ref } from '@vue/reactivity';
 export default {
-  emits : ["delete-techno"],
+  emits : ["delete-techno", "edit-techno"],
   props: {
     technos : {
       type : Array,
@@ -36,6 +37,7 @@ export default {
       technoToEdit.value = tech;
     };
     let save = function() {
+      emit("edittechno",technoToEdit.value)
       technoToEdit.value = null;
     }
     return{
