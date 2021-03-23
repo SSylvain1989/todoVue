@@ -15,7 +15,7 @@ export default {
             let techToLearn = ref("") ;
 
             const addTechno = function() {
-              console.log("Form | addTechno() | techToLearn" , techToLearn);
+              // console.log("Form | addTechno() | techToLearn" , techToLearn);
               // emit , avec le deuxieme parametre de setup , context , permet de passer la saisie de l'utilisateur au composant APP , le composant parent
               context.emit("add", techToLearn.value);
               techToLearn.value = "";

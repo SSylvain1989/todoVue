@@ -4,7 +4,7 @@
 <br>
 
 <!-- sans les deux points devant technos , on aurait passer au composant une string , là on passe bien la valeur -->
-<TechnoList :technos="technos"/>
+<TechnoList :technos="technos" @delete-techno="deleteTechno"/>
 </template>
 
 
@@ -27,12 +27,22 @@ export default {
 
       technos.value = [...technos.value, { techno : data , id : Date.now()}];
 
-}
+};
+        const deleteTechno = function (tech) {
+          // console.log('app2',technos.value);
+          // console.log('app', tech);
+          // pour chaque "tec" dans le tableau de technos.value tu regardes s'il est différent du tech ligne 31 , s'il est différent on l'affiche
+          technos.value = technos.value.filter(tec => tec.id !== tech.id);
+
+  };
 return {
     saveTechno,
-    technos
+    deleteTechno,
+    technos,
     }
-  }
+
+  },
+  
 };
 </script>
 
