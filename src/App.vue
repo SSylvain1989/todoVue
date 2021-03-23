@@ -1,17 +1,38 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<h1>Veille techno</h1>
+<Form @add="saveTechno"/>
+<br>
+<ul>
+  <li v-for="tech in technos" :key="tech.id">{{tech.techno}}</li>
+</ul>
+
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
+<script>
+
+import Form from "@/components/Form";
+import { ref } from '@vue/reactivity';
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Form,
+  },
+  setup() {
+    let technos = ref([]);
+
+    const saveTechno = function(data) {
+      console.log("app | saveTechno", data);
+      technos.value = [...technos.value, { techno : data , id : Date.now()}];
+            console.log("app | saveTechno", technos.value);
+
 }
+return {
+    saveTechno,
+    technos
+    }
+  }
+};
 </script>
 
 <style>
