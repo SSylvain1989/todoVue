@@ -2,29 +2,30 @@
 <h1>Veille techno</h1>
 <Form @add="saveTechno"/>
 <br>
-<ul>
-  <li v-for="tech in technos" :key="tech.id">{{tech.techno}}</li>
-</ul>
 
+<!-- sans les deux points devant technos , on aurait passer au composant une string , là on passe bien la valeur -->
+<TechnoList :technos="technos"/>
 </template>
 
 
 <script>
 
 import Form from "@/components/Form";
+import TechnoList from "@/components/TechnoList";
+
 import { ref } from '@vue/reactivity';
 export default {
   name: 'App',
   components: {
     Form,
+    TechnoList
   },
   setup() {
     let technos = ref([]);
 
     const saveTechno = function(data) {
-      console.log("app | saveTechno", data);
+
       technos.value = [...technos.value, { techno : data , id : Date.now()}];
-            console.log("app | saveTechno", technos.value);
 
 }
 return {
