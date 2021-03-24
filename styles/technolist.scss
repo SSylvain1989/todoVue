@@ -1,0 +1,81 @@
+ul {
+  list-style: none;
+  width: 50%;
+  margin: 0 auto;
+  text-align: left;
+  padding-left: 20rem;
+
+}
+
+button {
+  border: 1px solid #41B883;
+  color: #41B883;
+  border-radius: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: white;
+  padding: 0.55rem;
+  margin: 1rem 0.4rem;
+  font-weight: bold;
+}
+
+.delete {
+  border: 1px solid red;
+  color: red;
+  border-radius: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 0.8rem;
+  background-color: white;
+  padding: 0.55rem;
+  margin: 1rem;
+  font-weight: bold;
+
+}
+
+.delete:hover {
+  color: aliceblue;
+  background-color: red;
+}
+
+button:hover {
+  color: aliceblue;
+  background-color: #41B883;
+}
+
+input {
+
+  border: 1px solid #41B883;
+  color: #698BAD;
+  border-radius: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.2rem;
+  background-color: white;
+  padding: 0.35rem;
+
+}
+
+span {
+  padding-left: 1rem;
+  text-transform: uppercase;
+  color: #698BAD;
+
+}
+
+h3 {
+  color: #35495E;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+p {
+  color: #698BAD;
+}
+
+textarea:focus,
+input:focus,
+button:focus {
+  outline: none;
+}

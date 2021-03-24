@@ -1,10 +1,11 @@
 <template>
   <form @submit.prevent="addTechno">
-    <label for="techno">Techno à ajouter</label>
+    <label for="techno">Ajouter une techno</label>
     <br>
     <input type="text" name="techno" v-model="techToLearn">
     <br>
-    <button type="submit" >ajouter</button>
+
+    <button v-if="technoToLearn !== '' " type="submit" >ajouter</button>
   </form>
 </template>
 
@@ -31,5 +32,5 @@ return {
 </script>
 
 <style>
-
+  @import '../../styles/form.scss';
 </style>

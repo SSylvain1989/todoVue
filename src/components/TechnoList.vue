@@ -1,13 +1,14 @@
 <template>
-<h3>TechnoList</h3>
-{{technos.length}} techno{{technos.length > 1 ? "s" : ""}}
+<p>Nombre de technos : {{technos.length}} techno{{technos.length > 1 ? "s" : ""}}</p>
+<h3>Liste des technos : </h3> 
+
 <ul>
   <li v-for="tech in technos" :key="tech.id">
     <button @click="editTechno(tech)">Editer</button>
-    <button @click="deleteTechno(tech)">Supprimer</button> 
+    <button class="delete"  @click="deleteTechno(tech)">Supprimer</button> 
     <span v-if="technoToEdit !== null && technoToEdit.id === tech.id">
       <input type="text" v-model="technoToEdit.techno" @keypress.enter="save">
-      <button @click="save">sauvegarder</button>
+      <button class="save" @click="save">sauvegarder</button>
     </span>
     <span v-else>{{tech.techno}}</span>
     </li>
@@ -51,7 +52,5 @@ export default {
 </script>
 
 <style>
-ul{
-  list-style: none;
-}
+  @import '../../styles/technolist.scss';
 </style>
